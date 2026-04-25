@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKERHUB_USER  = 'your-dockerhub-username'
+        DOCKERHUB_USER  = 'prathamesh2019'
         IMAGE_NAME      = "${DOCKERHUB_USER}/dotnetapp"
         IMAGE_TAG       = "${BUILD_NUMBER}"
     }
