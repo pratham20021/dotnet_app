@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'windows' }
+    agent any
 
     environment {
         DOCKERHUB_USER  = 'your-dockerhub-username'
@@ -11,30 +11,6 @@ pipeline {
         stage('Checkout') {
             steps {
                 checkout scm
-            }
-        }
-
-        stage('Restore') {
-            steps {
-                dir('dotnetapp') {
-                    bat 'dotnet restore'
-                }
-            }
-        }
-
-        stage('Build') {
-            steps {
-                dir('dotnetapp') {
-                    bat 'dotnet build -c Release --no-restore'
-                }
-            }
-        }
-
-        stage('Publish') {
-            steps {
-                dir('dotnetapp') {
-                    bat 'dotnet publish -c Release --no-build -o publish'
-                }
             }
         }
 
